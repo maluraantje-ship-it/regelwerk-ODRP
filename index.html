@@ -9,357 +9,298 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
         
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        .mono {
-            font-family: 'Roboto Mono', monospace;
-        }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .mono { font-family: 'Roboto Mono', monospace; }
         .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
-        }
-        .section-header {
-            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.94)), url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat fixed;
         }
         .rule-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         .rule-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+        details[open] summary .fa-chevron-down {
+            transform: rotate(180deg);
         }
     </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100">
+<body class="bg-zinc-950 text-zinc-100 min-h-screen">
 
     <!-- NAVBAR -->
-    <nav class="bg-zinc-900 border-b border-zinc-800 fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav class="bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800 fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-2xl font-bold">🇩🇪</div>
-                <div>
-                    <span class="text-2xl font-bold tracking-tighter">OSTDEUTSCHLAND</span>
-                    <span class="text-blue-500 text-2xl font-bold tracking-tighter">RP</span>
-                </div>
+                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-2xl font-bold">OD</div>
+                <span class="text-2xl font-bold tracking-tight">OSTDEUTSCHLAND<span class="text-blue-500">RP</span></span>
             </div>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#start" class="hover:text-blue-400 transition">Start</a>
-                <a href="#regeln" class="hover:text-blue-400 transition">Regelwerk</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#start" class="hover:text-blue-400 transition">Home</a>
                 <a href="#fraktionen" class="hover:text-blue-400 transition">Fraktionen</a>
+                <a href="#regeln" class="hover:text-blue-400 transition">Regelwerk</a>
                 <a href="#einreise" class="hover:text-blue-400 transition">Einreise</a>
-                <a href="#discord" class="hover:text-blue-400 transition">Discord</a>
             </div>
-            
-            <div class="flex items-center gap-4">
-                <a href="https://discord.gg/ostdeutschlandrp" target="_blank" 
-                   class="bg-indigo-600 hover:bg-indigo-700 px-6 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 transition">
+            <div class="flex gap-4">
+                <a href="https://discord.gg/h2w9WmGX5M" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 transition">
                     <i class="fab fa-discord"></i> Discord
                 </a>
-                <a href="#" onclick="alert('Roblox Server-Link wird hier eingefügt (z.B. roblox.com/games/XXXXX)')"
-                   class="bg-emerald-600 hover:bg-emerald-700 px-6 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 transition">
-                    <i class="fab fa-roblox"></i> Server beitreten
+                <a href="#" onclick="alert('Roblox-Link hier einfügen – z. B. roblox.com/games/DEINE_GAME_ID')" class="bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 transition">
+                    <i class="fab fa-roblox"></i> Beitreten
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- HERO -->
-    <header id="start" class="hero-bg h-screen flex items-center">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-6 text-sm font-medium">
-                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                Hardcore Roleplay • 100+ Spieler online
+    <header id="start" class="hero-bg h-screen flex items-center justify-center text-center pt-20">
+        <div class="max-w-5xl px-6">
+            <div class="inline-block bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-6 text-sm font-medium">
+                <span class="text-emerald-400">●</span> Hardcore Roleplay – Ostdeutschland
             </div>
-            
-            <h1 class="text-7xl md:text-8xl font-bold tracking-tighter leading-none mb-4">
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-6">
                 OSTDEUTSCHLAND<br>ROLEPLAY
             </h1>
-            <p class="text-2xl text-zinc-300 max-w-2xl mx-auto mb-10">
-                Realistisches Notruf-RP • Einreise-Pflicht • Kein Kinderkram
+            <p class="text-xl md:text-2xl text-zinc-300 mb-10 max-w-3xl mx-auto">
+                Realistisches Notruf-RP • Strenge Einreise • Kein Kinderkram
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#regeln" 
-                   class="bg-white text-zinc-900 px-10 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 hover:bg-zinc-100 transition">
-                    <i class="fas fa-book"></i> Regelwerk lesen
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <a href="#regeln" class="bg-white text-zinc-900 px-10 py-4 rounded-xl font-bold text-lg hover:bg-zinc-200 transition flex items-center justify-center gap-3 shadow-xl">
+                    <i class="fas fa-book"></i> Regelwerk
                 </a>
-                <a href="https://discord.gg/ostdeutschlandrp" target="_blank"
-                   class="border border-white/50 hover:border-white px-10 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 transition">
+                <a href="https://discord.gg/h2w9WmGX5M" target="_blank" class="border border-indigo-500 hover:bg-indigo-600/20 px-10 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center gap-3">
                     <i class="fab fa-discord"></i> Discord beitreten
                 </a>
             </div>
-            
-            <div class="mt-16 text-xs uppercase tracking-widest text-zinc-500">
-                Roblox • Hardcore RP • Einreise erforderlich
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs text-zinc-400">
-            <div class="w-px h-12 bg-gradient-to-b from-transparent via-zinc-400 to-transparent"></div>
-            Scrollen
         </div>
     </header>
 
-    <!-- ÜBER UNS -->
-    <section class="py-24 bg-zinc-900">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-5xl font-bold tracking-tighter mb-6">Willkommen in der echten Ostzone.</h2>
-                    <p class="text-lg text-zinc-400 leading-relaxed">
-                        Ostdeutschland Roleplay ist der härteste und realistischste Notruf-Roleplay-Server auf Roblox. 
-                        Hier zählt nur eins: seriöses, glaubwürdiges und konsequentes Rollenspiel. Kein Kinderkram, kein Trolling, kein Powergaming.
-                    </p>
-                    <div class="mt-8 flex gap-8">
-                        <div>
-                            <div class="text-4xl font-bold text-blue-500">24/7</div>
-                            <div class="text-sm text-zinc-500">Non-Stop RP</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-blue-500">Einreise</div>
-                            <div class="text-sm text-zinc-500">Pflicht</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-blue-500">Hardcore</div>
-                            <div class="text-sm text-zinc-500">Nur Realismus</div>
-                        </div>
-                    </div>
+    <!-- FRAKTIONEN -->
+    <section id="fraktionen" class="py-20 bg-zinc-900 border-t border-zinc-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-black tracking-tight">Fraktionen</h2>
+                <p class="text-zinc-400 mt-4 text-lg">Realistisch – nach ostdeutschem Vorbild</p>
+            </div>
+            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="bg-zinc-800/70 border border-zinc-700 rounded-xl p-6 text-center hover:border-blue-600/50 transition">
+                    <div class="text-6xl mb-4">🚔</div>
+                    <h3 class="text-xl font-bold">Polizei</h3>
+                    <p class="text-sm text-zinc-400 mt-2">Streife · Kripo · Bereitschaft</p>
                 </div>
-                <div class="bg-zinc-800/50 border border-zinc-700 rounded-3xl p-8 mono text-sm leading-relaxed">
-                    <div class="text-emerald-400 mb-4 flex items-center gap-2">
-                        <i class="fas fa-check"></i> 
-                        <span class="font-semibold">Was dich erwartet:</span>
-                    </div>
-                    <ul class="space-y-3 text-zinc-300">
-                        <li class="flex gap-3"><span class="text-emerald-400">•</span> Realistische Polizei, Feuerwehr & Rettungsdienst nach ostdeutschem Vorbild</li>
-                        <li class="flex gap-3"><span class="text-emerald-400">•</span> Detailliertes Verletzungs-RP & Patientenversorgung</li>
-                        <li class="flex gap-3"><span class="text-emerald-400">•</span> Kriminelles RP nur mit sinnvollem Aufbau</li>
-                        <li class="flex gap-3"><span class="text-emerald-400">•</span> Voice-RP Pflicht (wenn möglich)</li>
-                        <li class="flex gap-3"><span class="text-emerald-400">•</span> Strenge Einreiseprüfung</li>
-                    </ul>
+                <div class="bg-zinc-800/70 border border-zinc-700 rounded-xl p-6 text-center hover:border-yellow-600/50 transition">
+                    <div class="text-6xl mb-4">🚕</div>
+                    <h3 class="text-xl font-bold">Taxifirma</h3>
+                    <p class="text-sm text-zinc-400 mt-2">Personenbeförderung · Stadt & Land</p>
+                </div>
+                <div class="bg-zinc-800/70 border border-zinc-700 rounded-xl p-6 text-center hover:border-red-600/50 transition">
+                    <div class="text-6xl mb-4">🚒</div>
+                    <h3 class="text-xl font-bold">Feuerwehr</h3>
+                    <p class="text-sm text-zinc-400 mt-2">Brand · Technische Hilfe · Rettung</p>
+                </div>
+                <div class="bg-zinc-800/70 border border-zinc-700 rounded-xl p-6 text-center hover:border-emerald-600/50 transition">
+                    <div class="text-6xl mb-4">🚑</div>
+                    <h3 class="text-xl font-bold">Rettungsdienst</h3>
+                    <p class="text-sm text-zinc-400 mt-2">Notarzt · RTW · Krankentransport</p>
+                </div>
+                <div class="bg-zinc-800/70 border border-zinc-700 rounded-xl p-6 text-center hover:border-gray-400/50 transition">
+                    <div class="text-6xl mb-4">🪖</div>
+                    <h3 class="text-xl font-bold">Bundeswehr</h3>
+                    <p class="text-sm text-zinc-400 mt-2">Militär · Manöver · Sicherung</p>
+                </div>
+                <div class="bg-zinc-800/70 border border-zinc-700 rounded-xl p-6 text-center hover:border-purple-600/50 transition">
+                    <div class="text-6xl mb-4">🏛️</div>
+                    <h3 class="text-xl font-bold">Regierung</h3>
+                    <p class="text-sm text-zinc-400 mt-2">Landesregierung · Behörden</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- REGELWERK -->
-    <section id="regeln" class="py-24 border-t border-zinc-800 bg-black">
+    <section id="regeln" class="py-20 bg-black border-t border-zinc-800">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="px-4 py-2 bg-red-500/10 text-red-400 text-xs font-mono tracking-widest rounded-full">OFFIZIELL</span>
-                <h2 class="text-5xl font-bold tracking-tighter mt-4">Regelwerk – Roblox Ostdeutschland Roleplay</h2>
-                <p class="text-zinc-400 mt-3">Hardcore Roleplay mit Einreise • Stand Februar 2026</p>
+                <h2 class="text-5xl font-black tracking-tight">Regelwerk</h2>
+                <p class="text-zinc-400 mt-3">Hardcore Roleplay • Einreise-Pflicht • Stand 2026</p>
             </div>
 
-            <div class="space-y-8">
-                <!-- 1. Grundprinzipien -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 open">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>1. Grundprinzipien</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+            <div class="space-y-6">
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        1. Grundprinzipien
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 space-y-6 text-zinc-300">
-                        <p><strong>1.1</strong> Hardcore RP (HRP) bedeutet realistisches, ernsthaftes und glaubwürdiges Rollenspiel.</p>
-                        <p><strong>1.2</strong> Dein Charakter ist kein Superheld – handle realistisch, logisch und situationsbedingt.</p>
-                        <p><strong>1.3</strong> OOC und IC sind streng zu trennen.</p>
-                        <p><strong>1.4</strong> Anweisungen des Serverteams sind immer zu befolgen.</p>
+                    <div class="mt-6 space-y-4 text-zinc-300">
+                        <p><strong>1.1</strong> Hardcore RP = realistisches, ernsthaftes, glaubwürdiges Rollenspiel.</p>
+                        <p><strong>1.2</strong> Kein Superhelden-Verhalten – immer realistisch & logisch handeln.</p>
+                        <p><strong>1.3</strong> OOC und IC strikt trennen.</p>
+                        <p><strong>1.4</strong> Anweisungen des Serverteams sind bindend.</p>
                     </div>
                 </details>
 
-                <!-- 2. Einreise -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>2. Einreise (Pflicht)</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        2. Einreise (Pflicht)
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 space-y-6 text-zinc-300">
-                        <p><strong>2.1</strong> Jeder Spieler muss eine Einreise absolvieren, bevor er aktiv am RP teilnehmen darf.</p>
-                        <p><strong>2.2</strong> Die Einreise prüft: RP-Wissen • Regelkenntnis • Realismus & Verhalten</p>
-                        <p><strong>2.3</strong> Während der Einreise gilt: Kein Trolling • Keine OOC-Diskussionen • Ruhiges, respektvolles Verhalten</p>
-                        <p><strong>2.4</strong> Nicht bestandene Einreisen dürfen einmal wiederholt werden.</p>
-                        <p><strong>2.5</strong> Umgehung der Einreise = sofortiger permanenter Ausschluss.</p>
+                    <div class="mt-6 space-y-4 text-zinc-300">
+                        <p><strong>2.1</strong> Jeder muss die Einreise bestehen, bevor er RP machen darf.</p>
+                        <p><strong>2.2</strong> Prüfung: RP-Wissen • Regelkenntnis • Realismus & Verhalten</p>
+                        <p><strong>2.3</strong> Während Einreise: kein Trolling, keine OOC-Diskussionen, respektvolles Verhalten</p>
+                        <p><strong>2.4</strong> Einmalige Wiederholung möglich</p>
+                        <p><strong>2.5</strong> Umgehung = permanenter Ban</p>
                     </div>
                 </details>
 
-                <!-- 3. Allgemeine RP-Regeln -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>3. Allgemeine RP-Regeln</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        3. Allgemeine RP-Regeln
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 grid md:grid-cols-2 gap-8">
-                        <div class="space-y-6">
-                            <h4 class="font-semibold text-lg text-amber-400">3.1 Pflicht-RP</h4>
-                            <p class="text-zinc-400">RP ist immer Pflicht, auch bei Routinehandlungen. AFK nur an sicheren Orten und mit RP-Begründung.</p>
+                    <div class="mt-6 grid md:grid-cols-2 gap-8 text-zinc-300">
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-amber-400">3.1 Pflicht-RP</h4>
+                            <p>RP immer Pflicht – auch bei Routine. AFK nur mit Begründung an sicherem Ort.</p>
                             
-                            <h4 class="font-semibold text-lg text-red-400">3.2 Metagaming (MG)</h4>
-                            <p class="text-zinc-400">Nutzung von OOC-Wissen im RP ist verboten.</p>
+                            <h4 class="font-bold text-lg mb-2 text-red-400 mt-6">3.2 Metagaming</h4>
+                            <p>OOC-Informationen (Discord, Streams, Nametags) nicht im RP nutzen.</p>
                         </div>
-                        <div class="space-y-6">
-                            <h4 class="font-semibold text-lg text-red-400">3.3 Powergaming (PG)</h4>
-                            <p class="text-zinc-400">Unrealistische oder erzwungene Handlungen sind verboten.</p>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-red-400">3.3 Powergaming</h4>
+                            <p>Keine unrealistischen/erzwungenen Aktionen.</p>
                             
-                            <h4 class="font-semibold text-lg text-red-400">3.4 Random Deathmatch (RDM)</h4>
-                            <p class="text-zinc-400">Töten oder Angreifen ohne RP-Grund ist verboten.</p>
-                            
-                            <h4 class="font-semibold text-lg text-red-400">3.5 Vehicle Deathmatch (VDM)</h4>
-                            <p class="text-zinc-400">Fahrzeuge dürfen nicht als Waffen benutzt werden.</p>
+                            <h4 class="font-bold text-lg mb-2 text-red-400 mt-6">3.4 RDM / 3.5 VDM</h4>
+                            <p>Kein Töten/Angreifen ohne Grund. Keine Fahrzeuge als Waffe.</p>
                         </div>
                     </div>
                 </details>
 
-                <!-- 4. New Life Regel -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>4. New Life Regel (NLR)</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        4. New Life Regel (NLR)
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 text-zinc-300">
-                        <p>Nach dem Tod vergisst dein Charakter:</p>
-                        <ul class="list-disc list-inside mt-4 space-y-2 ml-4">
-                            <li>Den Täter</li>
-                            <li>Den Tathergang</li>
-                            <li>Den Ort</li>
+                    <div class="mt-6 text-zinc-300">
+                        <p>Nach Tod vergisst Charakter:</p>
+                        <ul class="list-disc ml-6 mt-3 space-y-1">
+                            <li>Täter</li>
+                            <li>Tathergang</li>
+                            <li>Ort</li>
                         </ul>
-                        <p class="mt-6"><strong>Rückkehr zum Einsatzort erst nach 15 Minuten erlaubt.</strong><br>Rachehandlungen nach dem Tod sind streng verboten.</p>
+                        <p class="mt-6"><strong>Rückkehr erst nach 15 Minuten</strong> erlaubt.<br>Rache nach Tod = verboten.</p>
                     </div>
                 </details>
 
-                <!-- 5. Notruf-RP -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>5. Notruf-RP (110 / 112)</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        5. Notruf-RP (110 / 112)
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 text-zinc-300">
-                        <p>Notrufe müssen realistisch und ausführlich sein.<br>Fake-Notrufe sind verboten.<br>Missbrauch wird streng bestraft.</p>
+                    <div class="mt-6 text-zinc-300">
+                        <p>Notrufe müssen realistisch & detailliert sein.<br>Fake-Notrufe & Missbrauch = harte Strafe.</p>
                     </div>
                 </details>
 
-                <!-- 6. Fraktionen -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>6. Fraktionen & Berufe</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        6. Fraktionen & Berufe
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 grid md:grid-cols-3 gap-6 text-sm">
-                        <div class="bg-zinc-800 p-6 rounded-2xl">
-                            <div class="text-blue-400 font-semibold mb-3">Polizei</div>
-                            <p class="text-zinc-400">Verhältnismäßigkeit ist Pflicht. Schusswaffengebrauch nur als letztes Mittel. Festnahmen müssen ausgespielt werden.</p>
+                    <div class="mt-6 grid md:grid-cols-3 gap-6 text-zinc-300">
+                        <div class="bg-zinc-800 p-5 rounded-xl">
+                            <h4 class="font-bold text-blue-400 mb-2">Polizei</h4>
+                            <p>Verhältnismäßigkeit Pflicht. Schusswaffe = letztes Mittel. Festnahmen aussspielen.</p>
                         </div>
-                        <div class="bg-zinc-800 p-6 rounded-2xl">
-                            <div class="text-red-400 font-semibold mb-3">Rettungsdienst / Feuerwehr</div>
-                            <p class="text-zinc-400">Patienten-RP ist Pflicht. Eigengefährdung vermeiden. Kein RP-Abbruch ohne triftigen Grund.</p>
+                        <div class="bg-zinc-800 p-5 rounded-xl">
+                            <h4 class="font-bold text-red-400 mb-2">Feuerwehr & Rettungsdienst</h4>
+                            <p>Patienten-RP Pflicht. Keine Selbstgefährdung. Kein Abbruch ohne Grund.</p>
                         </div>
-                        <div class="bg-zinc-800 p-6 rounded-2xl">
-                            <div class="text-amber-400 font-semibold mb-3">Zivilisten</div>
-                            <p class="text-zinc-400">Kriminelles RP nur mit realistischem Aufbau. Kein Dauer-Crime.</p>
+                        <div class="bg-zinc-800 p-5 rounded-xl">
+                            <h4 class="font-bold text-amber-400 mb-2">Zivilisten / Taxifirma / Regierung / Bundeswehr</h4>
+                            <p>Kriminelles RP nur mit Aufbau. Kein Dauer-Crime. Realismus & Hierarchie beachten.</p>
                         </div>
                     </div>
                 </details>
 
-                <!-- 7. Waffen & Gewalt -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>7. Waffen & Gewalt</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        7. Waffen & Gewalt
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 text-zinc-300">
-                        <p>Waffen nur mit stichhaltigem RP-Grund.<br>Kein Dauerfeuer, Bunnyhopping oder unrealistisches Zielen.<br>Nach Schussverletzungen ist intensives Verletzungs-RP Pflicht.</p>
+                    <div class="mt-6 text-zinc-300">
+                        <p>Waffen nur mit gutem RP-Grund.<br>Kein Dauerfeuer, Bunnyhopping, unrealistisches Zielen.<br>Schussverletzung = intensives Verletzungs-RP Pflicht.</p>
                     </div>
                 </details>
 
-                <!-- 8. Kommunikation -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>8. Kommunikation</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        8. Kommunikation
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 text-zinc-300">
-                        <p>Voice-RP ist Pflicht, sofern technisch möglich.<br>OOC-Talk im RP-Chat verboten.<br>Beleidigungen nur, wenn sie ins RP passen.</p>
+                    <div class="mt-6 text-zinc-300">
+                        <p>Voice-RP Pflicht (wenn möglich).<br>Kein OOC im Voice/RP-Chat.<br>Beleidigungen nur RP-konform.</p>
                     </div>
                 </details>
 
-                <!-- 9. Strafen -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>9. Regelverstöße & Strafen</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        9. Regelverstöße & Strafen
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8">
-                        <div class="flex flex-wrap gap-3">
-                            <div class="bg-zinc-800 px-6 py-3 rounded-2xl text-sm">Verwarnung</div>
-                            <div class="bg-zinc-800 px-6 py-3 rounded-2xl text-sm">Kick</div>
-                            <div class="bg-orange-500/10 text-orange-400 px-6 py-3 rounded-2xl text-sm">Temporärer Bann</div>
-                            <div class="bg-red-500/10 text-red-400 px-6 py-3 rounded-2xl text-sm">Permanenter Bann</div>
+                    <div class="mt-6 text-zinc-300">
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span class="bg-zinc-800 px-5 py-2 rounded-lg">Verwarnung</span>
+                            <span class="bg-zinc-800 px-5 py-2 rounded-lg">Kick</span>
+                            <span class="bg-orange-900/40 px-5 py-2 rounded-lg">Temp-Bann</span>
+                            <span class="bg-red-900/40 px-5 py-2 rounded-lg">Perma-Bann</span>
                         </div>
-                        <p class="text-zinc-400 mt-6">Strafen richten sich nach Schwere des Verstoßes und Vorgeschichte.</p>
+                        <p>Strafen je nach Schwere & Vorgeschichte.</p>
                     </div>
                 </details>
 
-                <!-- 10. Serverteam -->
-                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-                    <summary class="flex items-center justify-between cursor-pointer text-xl font-semibold">
-                        <span>10. Serverteam</span>
-                        <i class="fas fa-chevron-down transition-transform"></i>
+                <details class="rule-card bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
+                    <summary class="text-xl font-semibold cursor-pointer flex justify-between items-center">
+                        10. Serverteam
+                        <i class="fas fa-chevron-down text-zinc-500 transition-transform"></i>
                     </summary>
-                    <div class="mt-8 text-zinc-300">
-                        <p>Das Serverteam handelt neutral.<br>Diskussionen über Entscheidungen nur im Support, nicht im RP.<br>Teammitglieder dürfen RP abbrechen, wenn Regeln verletzt werden.</p>
+                    <div class="mt-6 text-zinc-300">
+                        <p>Neutralität Pflicht.<br>Entscheidungen nur im Support diskutieren.<br>Team darf RP bei Regelbruch abbrechen.</p>
                     </div>
                 </details>
             </div>
 
-            <!-- Schlusswort -->
-            <div class="mt-20 bg-gradient-to-r from-blue-900/30 to-zinc-900 border border-blue-800 rounded-3xl p-12 text-center">
+            <!-- SCHLUSSWORT -->
+            <div class="mt-16 bg-gradient-to-br from-blue-950/30 to-zinc-950 border border-blue-900/50 rounded-3xl p-10 text-center">
                 <p class="text-2xl font-medium leading-relaxed">
-                    Dieses Regelwerk dient einem realistischen, fairen und hochwertigen RP.<br>
-                    <span class="text-emerald-400">Mit dem Betreten des Servers akzeptierst du alle oben genannten Regeln.</span>
+                    Dieses Regelwerk dient realistischem, fairem und qualitativ hochwertigem Roleplay.<br>
+                    <span class="text-emerald-400 font-semibold">Mit Betreten des Servers akzeptierst du alle Regeln.</span>
                 </p>
-                <div class="mt-10 text-4xl">🚓 🚑 🔥</div>
-                <p class="mt-6 text-xl text-zinc-400">Viel Spaß auf <span class="font-bold text-white">Ostdeutschland Roleplay</span> – Hardcore RP</p>
+                <div class="text-5xl mt-8">🚓 🚕 🚒 🚑 🪖 🏛️</div>
+                <p class="mt-6 text-xl text-zinc-300">Willkommen in Ostdeutschland Roleplay</p>
             </div>
         </div>
     </section>
 
-    <!-- EINREISE INFO -->
-    <section id="einreise" class="py-24 bg-zinc-900">
+    <!-- EINREISE -->
+    <section id="einreise" class="py-20 bg-zinc-900 border-t border-zinc-800">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-5xl font-bold tracking-tighter mb-8">Einreise – Dein Ticket ins echte RP</h2>
-            <div class="bg-zinc-800 rounded-3xl p-10 max-w-2xl mx-auto">
-                <div class="text-6xl mb-6">📋</div>
-                <p class="text-xl text-zinc-300">Jeder neue Spieler muss die Einreise bestehen.<br>Du wirst von einem Teammitglied geprüft auf:</p>
-                <div class="grid grid-cols-3 gap-6 mt-12">
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto bg-blue-500/10 rounded-2xl flex items-center justify-center text-3xl">🧠</div>
-                        <div class="mt-4 font-semibold">RP-Wissen</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto bg-blue-500/10 rounded-2xl flex items-center justify-center text-3xl">📜</div>
-                        <div class="mt-4 font-semibold">Regelkenntnis</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto bg-blue-500/10 rounded-2xl flex items-center justify-center text-3xl">🫡</div>
-                        <div class="mt-4 font-semibold">Realismus</div>
-                    </div>
-                </div>
+            <h2 class="text-5xl font-black tracking-tight mb-10">Einreise – Pflicht</h2>
+            <div class="bg-zinc-800/60 border border-zinc-700 rounded-3xl p-12">
+                <div class="text-7xl mb-8">🛂📝</div>
+                <p class="text-xl text-zinc-300 max-w-2xl mx-auto">
+                    Jeder neue Spieler muss die Einreiseprüfung bestehen.<br>
+                    Geprüft werden Regelkenntnis, RP-Verständnis, Realismus und Verhalten.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-black py-12 border-t border-zinc-800">
-        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
-            © 2026 Ostdeutschland Roleplay • Hardcore Roblox RP<br>
-            Nicht mit der echten Polizei, Feuerwehr oder Rettungsdienst verbunden.<br>
-            Alle Rechte vorbehalten. Kein Trolling. Nur ernstes RP.
-        </div>
+    <footer class="bg-black py-12 border-t border-zinc-800 text-center text-zinc-500 text-sm">
+        <p>© 2026 Ostdeutschland Roleplay • Hardcore Roblox RP</p>
+        <p class="mt-2">Keine Verbindung zu realen Behörden • Discord: <a href="https://discord.gg/h2w9WmGX5M" class="text-blue-400 hover:underline">discord.gg/h2w9WmGX5M</a></p>
     </footer>
 
-    <script>
-        // Tailwind script already loaded
-        console.log('%cOstdeutschland Roleplay Website erfolgreich geladen 🔥', 'color:#3b82f6; font-weight:bold');
-    </script>
 </body>
 </html>
